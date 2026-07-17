@@ -1,0 +1,2 @@
+com\healthybite\app\security\JwtTokenProviderTest.class
+com\healthybite\app\security\CustomUserDetailsServiceTest.class

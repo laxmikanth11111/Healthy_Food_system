@@ -1,0 +1,235 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+/* Import modern google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  --primary-color: #2E7D32;
+  --primary-hover: #1B5E20;
+  --primary-light: #E8F5E9;
+  --secondary-color: #FF9800;
+  --secondary-hover: #F57C00;
+  --bg-color: #F9F9F6;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --text-color: #2E3E33;
+  --text-muted: #6B7C70;
+  --border-color: rgba(46, 125, 50, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(46, 125, 50, 0.08);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  --font-sans: 'Outfit', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 30px;
+}
+
+[data-theme="dark"] {
+  --primary-color: #4CAF50;
+  --primary-hover: #81C784;
+  --primary-light: #1B5E20;
+  --secondary-color: #FFA726;
+  --secondary-hover: #FFB74D;
+  --bg-color: #0F1711;
+  --card-bg: rgba(20, 31, 23, 0.85);
+  --text-color: #E2EFE5;
+  --text-muted: #8CA092;
+  --border-color: rgba(76, 175, 80, 0.15);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .serif-font {
+  font-family: var(--font-serif);
+}
+
+/* Glassmorphism utility card */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-md);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(46, 125, 50, 0.12);
+}
+
+/* Custom rounded buttons */
+.btn-rounded {
+  border-radius: var(--radius-lg);
+  padding: 0.6rem 1.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--primary-hover);
+  color: white;
+  transform: scale(1.03);
+}
+
+.btn-secondary-custom {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+}
+
+.btn-secondary-custom:hover {
+  background-color: var(--secondary-hover);
+  color: white;
+  transform: scale(1.03);
+}
+
+.btn-outline-custom {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
+}
+
+.btn-outline-custom:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Gradients */
+.nature-gradient {
+  background: linear-gradient(135deg, #2E7D32 0%, #81C784 100%);
+  color: white;
+}
+
+.orange-gradient {
+  background: linear-gradient(135deg, #FF9800 0%, #FFB74D 100%);
+  color: white;
+}
+
+/* Custom navigation */
+.navbar-custom {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand-logo {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--primary-color) !important;
+}
+
+/* Dashboard Calorie target progress ring */
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse-hover:hover {
+  animation: pulse 1s infinite;
+}
+
+/* Skeleton Loading Loader */
+.skeleton {
+  background: linear-gradient(90deg, var(--primary-light) 25%, var(--bg-color) 50%, var(--primary-light) 75%);
+  background-size: 200% 100%;
+  animation: loading-skeleton 1.5s infinite;
+}
+
+@keyframes loading-skeleton {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-5px);
+}
+
+/* Quick View Modal Styles */
+.modal-glass {
+  background: rgba(15, 23, 17, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+/* Admin Sidebar Layout */
+.admin-sidebar {
+  min-width: 260px;
+  max-width: 260px;
+  background: var(--card-bg);
+  border-right: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+/* Dark mode toggle switch styling */
+.theme-switch {
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.theme-switch:hover {
+  transform: rotate(30deg);
+}
